@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "appanalytics.app"
-               BlueprintName = "appanalytics"
-               ReferencedContainer = "container:appanalytics.xcodeproj">
+               BuildableName = "crashlytics.app"
+               BlueprintName = "crashlytics"
+               ReferencedContainer = "container:crashlytics.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "appanalyticsTests.xctest"
-               BlueprintName = "appanalyticsTests"
-               ReferencedContainer = "container:appanalytics.xcodeproj">
+               BuildableName = "crashlyticsTests.xctest"
+               BlueprintName = "crashlyticsTests"
+               ReferencedContainer = "container:crashlytics.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "appanalytics.app"
-            BlueprintName = "appanalytics"
-            ReferencedContainer = "container:appanalytics.xcodeproj">
+            BuildableName = "crashlytics.app"
+            BlueprintName = "crashlytics"
+            ReferencedContainer = "container:crashlytics.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "appanalytics.app"
-            BlueprintName = "appanalytics"
-            ReferencedContainer = "container:appanalytics.xcodeproj">
+            BuildableName = "crashlytics.app"
+            BlueprintName = "crashlytics"
+            ReferencedContainer = "container:crashlytics.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
