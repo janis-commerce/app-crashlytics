@@ -76,6 +76,20 @@ You may need to add this in **android/settings.gradle**:
 
 ```
 
+### Add the firebase file configuration 
+
+Add the **firebase.json** file to the root of your project, with:
+
+```javascript
+  {
+    "react-native": {
+      "crashlytics_debug_enabled": true,
+    }
+  }
+
+```
+
+
 ### Clean the project
 
 ```sh
