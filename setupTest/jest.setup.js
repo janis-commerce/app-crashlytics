@@ -2,8 +2,14 @@
 
 jest.mock('react-native/Libraries/EventEmitter/NativeEventEmitter');
 
-jest.mock('@react-native-firebase/analytics', () =>
+jest.mock('@react-native-firebase/crashlytics', () =>
   jest.fn().mockImplementation(() => ({
-    logEvent: jest.fn(),
+    crash: jest.fn(),
+    log: jest.fn(),
+    recordError: jest.fn(),
+    setAttribute: jest.fn(),
+    setAttributes: jest.fn(),
+    setCrashlyticsCollectionEnabled: jest.fn(),
+    setUserId: jest.fn(),
   })),
 );
