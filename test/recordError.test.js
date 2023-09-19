@@ -1,10 +1,15 @@
 import recordError from '../lib/recordError';
-import * as utils from '../lib/utils';
+import * as isDevEnv from '../lib/utils/isDevEnv';
 
 describe('recordError function', () => {
-  const mockedDevEnv = jest.spyOn(utils, 'isDevEnv');
+  const mockedDevEnv = jest.spyOn(isDevEnv, 'default');
 
-  describe('thows an error when', () => {
+  describe('throws an error when', () => {
+    it('crashlytics is not enabled', async () => {
+      mockedDevEnv.mockReturnValueOnce(true);
+      expect(await recordError(undefined, 'Error name')).toBe(false);
+    });
+
     it('error is not correct', async () => {
       mockedDevEnv.mockReturnValueOnce(true);
       expect(await recordError(undefined, 'Error name')).toBe(false);
@@ -12,22 +17,21 @@ describe('recordError function', () => {
 
     it('jsErrorName is not string', async () => {
       mockedDevEnv.mockReturnValueOnce(false);
-       expect(await recordError(new Error('error'), 15)).toBe(false);
+      expect(await recordError(new Error('error'), 15)).toBe(false);
     });
   });
 
-   describe('it works correctly', () => {
-      it(' but no error message', async () => {
-        mockedDevEnv.mockReturnValueOnce(false);
-        const response = await recordError(new Error('error'));
-        expect(response).toStrictEqual(true);
-      });
+  describe('it works correctly', () => {
+    it(' but no error message', async () => {
+      mockedDevEnv.mockReturnValueOnce(true);
+      const response = await recordError(new Error('error'));
+      expect(response).toStrictEqual(true);
+    });
 
-      it(' but has error message', async () => {
-         mockedDevEnv.mockReturnValueOnce(false);
-         const response = await recordError(new Error('error'), 'Error name');
-         expect(response).toStrictEqual(true);
-       });
-
-   })
+    it(' but has error message', async () => {
+      mockedDevEnv.mockReturnValueOnce(false);
+      const response = await recordError(new Error('error'), 'Error name');
+      expect(response).toStrictEqual(true);
+    });
+  });
 });

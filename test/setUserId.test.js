@@ -1,10 +1,10 @@
-import setUserId from '../lib/setUserId';
-import * as utils from '../lib/utils';
+import setUserId from '../lib/utils/setUserId';
+import * as isEnvDev from '../lib/utils/isDevEnv';
 
 describe('setUserId function', () => {
-  const mockedDevEnv = jest.spyOn(utils, 'isDevEnv');
+  const mockedDevEnv = jest.spyOn(isEnvDev, 'default');
 
-  describe('thows an error when', () => {
+  describe('throws an error when', () => {
     it('userId is undefined', async () => {
       mockedDevEnv.mockReturnValueOnce(true);
       expect(await setUserId(undefined)).toBe(false);

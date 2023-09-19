@@ -40,7 +40,6 @@ plugins {
 
 dependencies {
   // Import the Firebase BoM
-  implementation project(path: ":@react-native-firebase_app")
   implementation platform('com.google.firebase:firebase-bom:32.2.2')
 
 
@@ -127,22 +126,22 @@ npm install @janis-commerce/app-crashlytics
 <dt><a href="#crash">crash()</a> ⇒ <code>void</code></dt>
 <dd><p>Cause your app to crash for testing purposes</p>
 </dd>
-<dt><a href="#log">log(message)</a> ⇒ <code>Promise.&lt;null&gt;</code></dt>
+<dt><a href="#log">log(message)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Log a message that will appear in any subsequent Crash or Non-fatal error reports</p>
 </dd>
-<dt><a href="#recordError">recordError(error, jsErrorName)</a> ⇒ <code>Promise.&lt;null&gt;</code></dt>
+<dt><a href="#recordError">recordError(error, jsErrorName)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Record a JavaScript Error.</p>
 </dd>
-<dt><a href="#setAttribute">setAttribute(name, value)</a> ⇒ <code>Promise.&lt;null&gt;</code></dt>
+<dt><a href="#setAttribute">setAttribute(name, value)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Sets a string value to be associated with the given attribute name which will be visible in the Firebase Crashlytics console.</p>
 </dd>
-<dt><a href="#setAttributes">setAttributes(params)</a> ⇒ <code>Promise.&lt;null&gt;</code></dt>
+<dt><a href="#setAttributes">setAttributes(params)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Sets a string value to be associated with the given attribute name which will be visible in the Firebase Crashlytics console.</p>
 </dd>
-<dt><a href="#setCrashlyticsCollectionEnabled">setCrashlyticsCollectionEnabled(enabled)</a> ⇒ <code>Promise.&lt;null&gt;</code></dt>
+<dt><a href="#setCrashlyticsCollectionEnabled">setCrashlyticsCollectionEnabled(enabled)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Enable/disable Crashlytics reporting.</p>
 </dd>
-<dt><a href="#setUserId">setUserId(userId)</a> ⇒ <code>Promise.&lt;null&gt;</code></dt>
+<dt><a href="#setUserId">setUserId(userId)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Record a JavaScript Error.</p>
 </dd>
 </dl>
@@ -160,7 +159,7 @@ crash()
 ```
 <a name="log"></a>
 
-## log(message) ⇒ <code>Promise.&lt;null&gt;</code>
+## log(message) ⇒ <code>boolean</code>
 Log a message that will appear in any subsequent Crash or Non-fatal error reports
 
 **Kind**: global function  
@@ -180,7 +179,7 @@ log('this is a pda error')
 ```
 <a name="recordError"></a>
 
-## recordError(error, jsErrorName) ⇒ <code>Promise.&lt;null&gt;</code>
+## recordError(error, jsErrorName) ⇒ <code>boolean</code>
 Record a JavaScript Error.
 
 **Kind**: global function  
@@ -202,7 +201,7 @@ recordError(error)
 ```
 <a name="setAttribute"></a>
 
-## setAttribute(name, value) ⇒ <code>Promise.&lt;null&gt;</code>
+## setAttribute(name, value) ⇒ <code>boolean</code>
 Sets a string value to be associated with the given attribute name which will be visible in the Firebase Crashlytics console.
 
 **Kind**: global function  
@@ -223,7 +222,7 @@ setAttribute('credits', String(user.credits)),
 ```
 <a name="setAttributes"></a>
 
-## setAttributes(params) ⇒ <code>Promise.&lt;null&gt;</code>
+## setAttributes(params) ⇒ <code>boolean</code>
 Sets a string value to be associated with the given attribute name which will be visible in the Firebase Crashlytics console.
 
 **Kind**: global function  
@@ -250,7 +249,7 @@ setAttributes({
 ```
 <a name="setCrashlyticsCollectionEnabled"></a>
 
-## setCrashlyticsCollectionEnabled(enabled) ⇒ <code>Promise.&lt;null&gt;</code>
+## setCrashlyticsCollectionEnabled(enabled) ⇒ <code>boolean</code>
 Enable/disable Crashlytics reporting.
 
 **Kind**: global function  
@@ -270,7 +269,7 @@ setCrashlyticsCollectionEnabled(true),
 ```
 <a name="setUserId"></a>
 
-## setUserId(userId) ⇒ <code>Promise.&lt;null&gt;</code>
+## setUserId(userId) ⇒ <code>boolean</code>
 Record a JavaScript Error.
 
 **Kind**: global function  

@@ -1,10 +1,10 @@
-import setAttributes from '../lib/setAttributes';
-import * as utils from '../lib/utils';
+import setAttributes from '../lib/utils/setAttributes';
+import * as isEnvDev from '../lib/utils/isDevEnv';
 
 describe('setAttributes function', () => {
-  const mockedDevEnv = jest.spyOn(utils, 'isDevEnv');
+  const mockedDevEnv = jest.spyOn(isEnvDev, 'default');
 
-  describe('thows an error when', () => {
+  describe('throws an error when', () => {
     it('params is empty', async () => {
       mockedDevEnv.mockReturnValueOnce(true);
       expect(await setAttributes({})).toBe(false);
@@ -15,9 +15,9 @@ describe('setAttributes function', () => {
     });
   });
 
-   it('it works correctly', async () => {
-     mockedDevEnv.mockReturnValueOnce(false);
-      const response = await setAttributes({ name:'name', value:'value'});
-     expect(response).toStrictEqual(true);
-   });
+  it('it works correctly', async () => {
+    mockedDevEnv.mockReturnValueOnce(false);
+    const response = await setAttributes({name: 'name', value: 'value'});
+    expect(response).toStrictEqual(true);
+  });
 });

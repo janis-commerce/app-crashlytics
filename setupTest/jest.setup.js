@@ -9,7 +9,8 @@ jest.mock('@react-native-firebase/crashlytics', () =>
     recordError: jest.fn(),
     setAttribute: jest.fn(),
     setAttributes: jest.fn(),
-    setCrashlyticsCollectionEnabled: jest.fn(),
     setUserId: jest.fn(),
+    setCrashlyticsCollectionEnabled: jest.fn(),
+    isCrashlyticsCollectionEnabled: true,
   })),
 );
