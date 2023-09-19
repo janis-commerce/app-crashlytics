@@ -126,7 +126,7 @@ npm install @janis-commerce/app-crashlytics
 <dt><a href="#crash">crash()</a> ⇒ <code>void</code></dt>
 <dd><p>Cause your app to crash for testing purposes</p>
 </dd>
-<dt><a href="#log">log(message, attributes)</a> ⇒ <code>boolean</code></dt>
+<dt><a href="#log">log(message, attributes, attributes[attributes)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Log a message that will appear in any subsequent Crash or Non-fatal error reports</p>
 </dd>
 <dt><a href="#recordError">recordError(error, jsErrorName)</a> ⇒ <code>boolean</code></dt>
@@ -143,28 +143,48 @@ Cause your app to crash for testing purposes
 **Example**  
 ```js
 import {crash} from '@janiscommerce/app-crashlytics'
+
+// minimum example
 crash()
 ```
 <a name="log"></a>
 
-## log(message, attributes) ⇒ <code>boolean</code>
+## log(message, attributes, attributes[attributes) ⇒ <code>boolean</code>
 Log a message that will appear in any subsequent Crash or Non-fatal error reports
 
 **Kind**: global function  
+**Returns**: <code>boolean</code> - Returns true if the log was successful.  
 **Throws**:
 
-- an error when some required params is not passed
+- An error when some required params is not passed
 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| message | <code>string</code> | context message. |
-| attributes | <code>object</code> | attributes. |
+| message | <code>string</code> | Context message. |
+| attributes | <code>object</code> | Attributes. |
+| attributes.userIdAattribute | <code>string</code> | User Id. |
+| attributes.error | <code>Error</code> | Attribute to error records. |
+| attributes[attributes | <code>string</code> \| <code>object</code> | Attributes that can be either a string or an object. |
 
 **Example**  
 ```js
 import {log} from '@janiscommerce/app-crashlytics'
-log('this is a pda error', {userId: '213213, info:{name: 'pepe', email: pepe@email.com}, error: Error})
+
+// minimum example
+log('this is a pda error')
+
+// add userId to crashlytics console
+log('this is a pda error', {userId: '213213})
+
+ // recod an error to crashlytics console
+log('this is a pda error', {error: Error})
+
+// add an attribute to crashlytics console
+log('this is a pda error', {name: 'Pedro'})
+
+// add attributes to crashlytics console
+log('this is a pda error', {info: {name: 'Pedro', email: 'pedro@email.com', age: '38'}})
 ```
 <a name="recordError"></a>
 
@@ -174,17 +194,21 @@ Record a JavaScript Error.
 **Kind**: global function  
 **Throws**:
 
-- an error when some required params is not passed
+- An error when some required params is not passed
 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| error | <code>Error</code> | javascript error |
-| jsErrorName | <code>string</code> \| <code>undefined</code> | error name |
+| error | <code>Error</code> | Javascript error |
+| jsErrorName | <code>string</code> \| <code>undefined</code> | Error name |
 
 **Example**  
 ```js
 import {recordError} from '@janiscommerce/app-crashlytics'
-recordError(error, jsErrorName: 'user acount catch')
+
+// minimum example
 recordError(error)
+
+// with error description
+recordError(error, jsErrorName: 'user acount catch')
 ```
