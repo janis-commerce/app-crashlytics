@@ -126,22 +126,10 @@ npm install @janis-commerce/app-crashlytics
 <dt><a href="#crash">crash()</a> ⇒ <code>void</code></dt>
 <dd><p>Cause your app to crash for testing purposes</p>
 </dd>
-<dt><a href="#log">log(message)</a> ⇒ <code>boolean</code></dt>
+<dt><a href="#log">log(message, attributes)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Log a message that will appear in any subsequent Crash or Non-fatal error reports</p>
 </dd>
 <dt><a href="#recordError">recordError(error, jsErrorName)</a> ⇒ <code>boolean</code></dt>
-<dd><p>Record a JavaScript Error.</p>
-</dd>
-<dt><a href="#setAttribute">setAttribute(name, value)</a> ⇒ <code>boolean</code></dt>
-<dd><p>Sets a string value to be associated with the given attribute name which will be visible in the Firebase Crashlytics console.</p>
-</dd>
-<dt><a href="#setAttributes">setAttributes(params)</a> ⇒ <code>boolean</code></dt>
-<dd><p>Sets a string value to be associated with the given attribute name which will be visible in the Firebase Crashlytics console.</p>
-</dd>
-<dt><a href="#setCrashlyticsCollectionEnabled">setCrashlyticsCollectionEnabled(enabled)</a> ⇒ <code>boolean</code></dt>
-<dd><p>Enable/disable Crashlytics reporting.</p>
-</dd>
-<dt><a href="#setUserId">setUserId(userId)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Record a JavaScript Error.</p>
 </dd>
 </dl>
@@ -159,7 +147,7 @@ crash()
 ```
 <a name="log"></a>
 
-## log(message) ⇒ <code>boolean</code>
+## log(message, attributes) ⇒ <code>boolean</code>
 Log a message that will appear in any subsequent Crash or Non-fatal error reports
 
 **Kind**: global function  
@@ -171,11 +159,12 @@ Log a message that will appear in any subsequent Crash or Non-fatal error report
 | Param | Type | Description |
 | --- | --- | --- |
 | message | <code>string</code> | context message. |
+| attributes | <code>object</code> | attributes. |
 
 **Example**  
 ```js
 import {log} from '@janiscommerce/app-crashlytics'
-log('this is a pda error')
+log('this is a pda error', {userId: '213213, info:{name: 'pepe', email: pepe@email.com}, error: Error})
 ```
 <a name="recordError"></a>
 
@@ -198,92 +187,4 @@ Record a JavaScript Error.
 import {recordError} from '@janiscommerce/app-crashlytics'
 recordError(error, jsErrorName: 'user acount catch')
 recordError(error)
-```
-<a name="setAttribute"></a>
-
-## setAttribute(name, value) ⇒ <code>boolean</code>
-Sets a string value to be associated with the given attribute name which will be visible in the Firebase Crashlytics console.
-
-**Kind**: global function  
-**Throws**:
-
-- an error when some required params is not passed
-
-
-| Param | Type | Description |
-| --- | --- | --- |
-| name | <code>string</code> | attribute name |
-| value | <code>string</code> | attribute value |
-
-**Example**  
-```js
-import {setAttribute} from '@janiscommerce/app-crashlytics'
-setAttribute('credits', String(user.credits)),
-```
-<a name="setAttributes"></a>
-
-## setAttributes(params) ⇒ <code>boolean</code>
-Sets a string value to be associated with the given attribute name which will be visible in the Firebase Crashlytics console.
-
-**Kind**: global function  
-**Throws**:
-
-- an error when some required params is not passed
-
-
-| Param | Type | Description |
-| --- | --- | --- |
-| params | <code>object</code> | object of attributes |
-| params.name | <code>string</code> | object name |
-| params.value | <code>string</code> | object value |
-
-**Example**  
-```js
-import {setAttributes} from '@janiscommerce/app-crashlytics'
-setAttributes({
-      role: 'admin',
-      followers: '13',
-      email: user.email,
-      username: user.username,
-    }),
-```
-<a name="setCrashlyticsCollectionEnabled"></a>
-
-## setCrashlyticsCollectionEnabled(enabled) ⇒ <code>boolean</code>
-Enable/disable Crashlytics reporting.
-
-**Kind**: global function  
-**Throws**:
-
-- an error when some required params is not passed
-
-
-| Param | Type | Description |
-| --- | --- | --- |
-| enabled | <code>boolean</code> | crash collection enabled/disabled |
-
-**Example**  
-```js
-import {setCrashlyticsCollectionEnabled} from '@janiscommerce/app-crashlytics'
-setCrashlyticsCollectionEnabled(true),
-```
-<a name="setUserId"></a>
-
-## setUserId(userId) ⇒ <code>boolean</code>
-Record a JavaScript Error.
-
-**Kind**: global function  
-**Throws**:
-
-- an error when some required params is not passed
-
-
-| Param | Type | Description |
-| --- | --- | --- |
-| userId | <code>string</code> | id of user |
-
-**Example**  
-```js
-import {setUserId} from '@janiscommerce/app-crashlytics'
-setUserId(user.uid),
 ```
