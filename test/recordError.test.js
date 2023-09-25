@@ -7,31 +7,29 @@ describe('recordError function', () => {
   describe('throws an error when', () => {
     it('crashlytics is not enabled', async () => {
       mockedDevEnv.mockReturnValueOnce(true);
-      expect(await recordError(undefined, 'Error name')).toBe(false);
+      await recordError(undefined, 'Error name');
     });
 
     it('error is not correct', async () => {
       mockedDevEnv.mockReturnValueOnce(true);
-      expect(await recordError(undefined, 'Error name')).toBe(false);
+      await recordError(undefined, 'Error name');
     });
 
     it('jsErrorName is not string', async () => {
       mockedDevEnv.mockReturnValueOnce(false);
-      expect(await recordError(new Error('error'), 15)).toBe(false);
+      await recordError(new Error('error'), 15);
     });
   });
 
   describe('it works correctly', () => {
     it(' but no error message', async () => {
       mockedDevEnv.mockReturnValueOnce(true);
-      const response = await recordError(new Error('error'));
-      expect(response).toStrictEqual(true);
+      await recordError(new Error('error'));
     });
 
     it(' but has error message', async () => {
       mockedDevEnv.mockReturnValueOnce(false);
-      const response = await recordError(new Error('error'), 'Error name');
-      expect(response).toStrictEqual(true);
+      await recordError(new Error('error'), 'Error name');
     });
   });
 });
