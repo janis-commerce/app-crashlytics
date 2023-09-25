@@ -126,34 +126,33 @@ npm install @janis-commerce/app-crashlytics
 <dt><a href="#crash">crash()</a> ⇒ <code>void</code></dt>
 <dd><p>Cause your app to crash for testing purposes</p>
 </dd>
-<dt><a href="#log">log(message, attributes, attributes[attributes)</a> ⇒ <code>boolean</code></dt>
+<dt><a href="#log">log(message, attributes, attributes[attributes)</a> ⇒ <code>void</code></dt>
 <dd><p>Log a message that will appear in any subsequent Crash or Non-fatal error reports</p>
 </dd>
-<dt><a href="#recordError">recordError(error, jsErrorName)</a> ⇒ <code>boolean</code></dt>
+<dt><a href="#recordError">recordError(error, jsErrorName)</a> ⇒ <code>void</code></dt>
 <dd><p>Record a JavaScript Error.</p>
 </dd>
 </dl>
 
-<a name="crash"></a>
+<a name="crashThisApp"></a>
 
-## crash() ⇒ <code>void</code>
+## crashThisApp() ⇒ <code>void</code>
 Cause your app to crash for testing purposes
 
 **Kind**: global function  
 **Example**  
 ```js
-import {crash} from '@janiscommerce/app-crashlytics'
+import crash from '@janiscommerce/app-crashlytics'
 
 // minimum example
-crash()
+crash.crashThisApp()
 ```
 <a name="log"></a>
 
-## log(message, attributes, attributes[attributes) ⇒ <code>boolean</code>
+## log(message, {attributes}) ⇒ <code>void</code>
 Log a message that will appear in any subsequent Crash or Non-fatal error reports
 
 **Kind**: global function  
-**Returns**: <code>boolean</code> - Returns true if the log was successful.  
 **Throws**:
 
 - An error when some required params is not passed
@@ -165,30 +164,30 @@ Log a message that will appear in any subsequent Crash or Non-fatal error report
 | attributes | <code>object</code> | Attributes. |
 | attributes.userIdAattribute | <code>string</code> | User Id. |
 | attributes.error | <code>Error</code> | Attribute to error records. |
-| attributes[attributes | <code>string</code> \| <code>object</code> | Attributes that can be either a string or an object. |
+| attributes[attributes] | <code>string</code> \| <code>object</code> | Attributes that can be either a string or an object. |
 
 **Example**  
 ```js
-import {log} from '@janiscommerce/app-crashlytics'
+import crash from '@janiscommerce/app-crashlytics'
 
 // minimum example
-log('this is a pda error')
+crash.log('this is a pda error')
 
 // add userId to crashlytics console
-log('this is a pda error', {userId: '213213})
+crash.log('this is a pda error', {userId: '213213})
 
  // recod an error to crashlytics console
-log('this is a pda error', {error: Error})
+crash.log('this is a pda error', {error: Error})
 
 // add an attribute to crashlytics console
-log('this is a pda error', {name: 'Pedro'})
+crash.log('this is a pda error', {name: 'Pedro'})
 
 // add attributes to crashlytics console
-log('this is a pda error', {info: {name: 'Pedro', email: 'pedro@email.com', age: '38'}})
+crash.log('this is a pda error', {info: {name: 'Pedro', email: 'pedro@email.com', age: '38'}})
 ```
 <a name="recordError"></a>
 
-## recordError(error, jsErrorName) ⇒ <code>boolean</code>
+## recordError(error, jsErrorName) ⇒ <code>void</code>
 Record a JavaScript Error.
 
 **Kind**: global function  
@@ -207,8 +206,10 @@ Record a JavaScript Error.
 import {recordError} from '@janiscommerce/app-crashlytics'
 
 // minimum example
+const error = throw Error('params are required');
 recordError(error)
 
 // with error description
-recordError(error, jsErrorName: 'user acount catch')
+const error = throw Error('params are required');
+recordError(error, 'Required params')
 ```
