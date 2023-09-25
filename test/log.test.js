@@ -5,7 +5,7 @@ import * as setLogAttibutes from '../lib/utils/setLogAttributes';
 
 describe('log function', () => {
   const mockedDevEnv = jest.spyOn(isDevEnv, 'default');
-  const mockedSetLogAttibutes = jest.spyOn(setLogAttibutes, 'default');
+  jest.spyOn(setLogAttibutes, 'default');
   jest.spyOn(setError, 'default');
 
   describe('throws an error when', () => {
@@ -34,6 +34,10 @@ describe('log function', () => {
 
     it('when has message and AttributesCrash', async () => {
       await log('error', {userId: '13231'});
+    });
+
+    it('when has error instance', async () => {
+      await log('error', {userId: '13231', error: new Error('Error')});
     });
   });
 });

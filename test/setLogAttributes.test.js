@@ -1,20 +1,32 @@
 import setLogAttributes from '../lib/utils/setLogAttributes';
+import * as crashlytics from '@react-native-firebase/crashlytics';
 
 describe('setLogAttributes function', () => {
   describe('throws an error when', () => {
-    it('params is empty', async () => {
-      mockedDevEnv.mockReturnValueOnce(true);
-      expect(await setLogAttributes({})).toBe(false);
+    it('arent attributes or key, because attributes is required', async () => {
+      await setLogAttributes('red', null);
     });
-    it('params is empty', async () => {
-      mockedDevEnv.mockReturnValueOnce(false);
-      expect(await setLogAttributes({})).toBe(false);
+
+    it('arent attributes or key, because key is required', async () => {
+      await setLogAttributes(null, 'red');
+    });
+
+    it('is not add object attributes', async () => {
+      await setLogAttributes(15, 'example');
+    });
+
+    it('is not add object attributes', async () => {
+      await setLogAttributes([], 'example');
     });
   });
 
-  it('it works correctly', async () => {
-    mockedDevEnv.mockReturnValueOnce(false);
-    const response = await setLogAttributes({name: 'name', value: 'value'});
-    expect(response).toStrictEqual(true);
+  describe('render correctly when', () => {
+    it('add object attributes', async () => {
+      await setLogAttributes({log: 'example'}, 'example');
+    });
+
+    it('add single key value attribute', async () => {
+      await setLogAttributes('log', 'example');
+    });
   });
 });
