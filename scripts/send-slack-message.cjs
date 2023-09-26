@@ -21,7 +21,7 @@ const header = `${serviceCode} ${releaseVersion} released! :tada:`;
   const asyncRequest = util.promisify((requestData, cb) => {
     const {url: requestUrl, body, ...rest} = requestData;
 
-    const req = https.request(requestUrl, rest, (res) => {
+    const req = https.request(requestUrl, rest, res => {
       if (res.statusCode !== 200)
         throw new Error(
           `Failed to send request to ${requestUrl}: ${res.statusCode}`,
