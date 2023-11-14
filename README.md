@@ -142,7 +142,8 @@ Cause your app to crash for testing purposes
 **Kind**: global function  
 **Example**  
 ```js
-import crash from '@janiscommerce/app-crashlytics'
+import Crashlytics from '@janiscommerce/app-crashlytics'
+const crash = new Crashlytics()
 
 // minimum example
 crash.crashThisApp()
@@ -168,7 +169,8 @@ Log a message that will appear in any subsequent Crash or Non-fatal error report
 
 **Example**  
 ```js
-import crash from '@janiscommerce/app-crashlytics'
+import Crashlytics from '@janiscommerce/app-crashlytics'
+const crash = new Crashlytics()
 
 // minimum example
 crash.log('this is a pda error')
@@ -198,12 +200,15 @@ Record a JavaScript Error.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| error | <code>Error</code> | Javascript error |
-| jsErrorName | <code>string</code> \| <code>undefined</code> | Error name |
+| error | <code>Error</code> | Javascript error. |
+| jsErrorName | <code>string</code> \| <code>undefined</code> | Error name. |
+| attributes | <code>object</code> | Attributes. |
+| attributes[attributes] | <code>string</code> \| <code>object</code> | Attributes that can be either a string or an object. |
 
 **Example**  
 ```js
-import {recordError} from '@janiscommerce/app-crashlytics'
+import Crashlytics from '@janiscommerce/app-crashlytics'
+const crash = new Crashlytics()
 
 // minimum example
 const error = throw Error('params are required');

@@ -128,6 +128,11 @@ describe('Crashlytics class', () => {
         mockedDevEnv.mockReturnValueOnce(false);
         await crash.recordError(new Error('error'), 15);
       });
+
+      it('attributes is not object', async () => {
+        mockedDevEnv.mockReturnValueOnce(false);
+        await crash.recordError(new Error('error'), 'Error name', 15);
+      });
     });
 
     describe('it works correctly', () => {
