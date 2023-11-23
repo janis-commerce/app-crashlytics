@@ -1,4 +1,4 @@
-import Crashlytics from '../lib'; // Assuming this is the correct path to your Crashlytics class
+import Crashlytics from '../lib/crashlytics';
 import * as isDevEnv from '../lib/utils/isDevEnv';
 import * as setError from '../lib/utils/setError';
 import * as setLogAttibute from '../lib/utils/setAttribute';
