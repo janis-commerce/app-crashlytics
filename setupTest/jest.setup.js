@@ -14,3 +14,7 @@ jest.mock('@react-native-firebase/crashlytics', () =>
     isCrashlyticsCollectionEnabled: true,
   })),
 );
+
+jest.mock('@janiscommerce/oauth-native', () => ({
+  getUserInfo: jest.fn()
+}));

@@ -123,17 +123,34 @@ npm install @janis-commerce/app-crashlytics
 ## Functions
 
 <dl>
-<dt><a href="#crash">crash()</a> ⇒ <code>void</code></dt>
+<dt><a href="#initialize">initialize()</a> ⇒ <code>void</code></dt>
+<dd><p>initalize data from userData</p>
+</dd>
+<dt><a href="#crashThisApp">crashThisApp()</a> ⇒ <code>void</code></dt>
 <dd><p>Cause your app to crash for testing purposes</p>
+</dd>
+<dt><a href="#recordError">recordError(error, jsErrorName, attributes)</a> ⇒ <code>void</code></dt>
+<dd><p>Record a JavaScript Error.</p>
 </dd>
 <dt><a href="#log">log(message, attributes, attributes[attributes)</a> ⇒ <code>void</code></dt>
 <dd><p>Log a message that will appear in any subsequent Crash or Non-fatal error reports</p>
 </dd>
-<dt><a href="#recordError">recordError(error, jsErrorName)</a> ⇒ <code>void</code></dt>
-<dd><p>Record a JavaScript Error.</p>
-</dd>
 </dl>
 
+<a name="initialize"></a>
+
+## initialize() ⇒ <code>void</code>
+initalize data from userData
+
+**Kind**: global function  
+**Example**  
+```js
+import Crashlytics from '@janiscommerce/app-crashlytics'
+const crash = new Crashlytics()
+
+// minimum example
+crash.initialize()
+```
 <a name="crashThisApp"></a>
 
 ## crashThisApp() ⇒ <code>void</code>
@@ -148,9 +165,39 @@ const crash = new Crashlytics()
 // minimum example
 crash.crashThisApp()
 ```
+<a name="recordError"></a>
+
+## recordError(error, jsErrorName, attributes) ⇒ <code>void</code>
+Record a JavaScript Error.
+
+**Kind**: global function  
+**Throws**:
+
+- An error when some required params is not passed
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| error | <code>Error</code> | Javascript error |
+| jsErrorName | <code>string</code> \| <code>undefined</code> | Error name |
+| attributes | <code>object</code> | Attributes that can be either a string or an object. |
+
+**Example**  
+```js
+import Crashlytics from '@janiscommerce/app-crashlytics'
+const crash = new Crashlytics()
+
+// without params
+const error = throw Error('params are required');
+crash.recordError(error, 'error-name')
+
+// with params
+const error = throw Error('params are required');
+crash.recordError(error, 'error-name', {name: Pepe})
+```
 <a name="log"></a>
 
-## log(message, {attributes}) ⇒ <code>void</code>
+## log(message, attributes, attributes[attributes) ⇒ <code>void</code>
 Log a message that will appear in any subsequent Crash or Non-fatal error reports
 
 **Kind**: global function  
@@ -165,7 +212,7 @@ Log a message that will appear in any subsequent Crash or Non-fatal error report
 | attributes | <code>object</code> | Attributes. |
 | attributes.userIdAattribute | <code>string</code> | User Id. |
 | attributes.error | <code>Error</code> | Attribute to error records. |
-| attributes[attributes] | <code>string</code> \| <code>object</code> | Attributes that can be either a string or an object. |
+| attributes[attributes | <code>string</code> \| <code>object</code> | Attributes that can be either a string or an object. |
 
 **Example**  
 ```js
@@ -186,35 +233,4 @@ crash.log('this is a pda error', {name: 'Pedro'})
 
 // add attributes to crashlytics console
 crash.log('this is a pda error', {info: {name: 'Pedro', email: 'pedro@email.com', age: '38'}})
-```
-<a name="recordError"></a>
-
-## recordError(error, jsErrorName) ⇒ <code>void</code>
-Record a JavaScript Error.
-
-**Kind**: global function  
-**Throws**:
-
-- An error when some required params is not passed
-
-
-| Param | Type | Description |
-| --- | --- | --- |
-| error | <code>Error</code> | Javascript error. |
-| jsErrorName | <code>string</code> \| <code>undefined</code> | Error name. |
-| attributes | <code>object</code> | Attributes. |
-| attributes[attributes] | <code>string</code> \| <code>object</code> | Attributes that can be either a string or an object. |
-
-**Example**  
-```js
-import Crashlytics from '@janiscommerce/app-crashlytics'
-const crash = new Crashlytics()
-
-// minimum example
-const error = throw Error('params are required');
-recordError(error)
-
-// with error description
-const error = throw Error('params are required');
-recordError(error, 'Required params')
 ```
