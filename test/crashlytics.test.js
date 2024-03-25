@@ -120,7 +120,7 @@ describe('Crashlytics class', () => {
       });
 
       it('error is not correct', async () => {
-        mockedDevEnv.mockReturnValueOnce(true);
+        mockedDevEnv.mockReturnValueOnce(false);
         await crash.recordError(undefined, 'Error name');
       });
 
@@ -137,7 +137,7 @@ describe('Crashlytics class', () => {
 
     describe('it works correctly', () => {
       it(' but no error message', async () => {
-        mockedDevEnv.mockReturnValueOnce(true);
+        mockedDevEnv.mockReturnValueOnce(false);
         await crash.recordError(new Error('error'));
       });
 
