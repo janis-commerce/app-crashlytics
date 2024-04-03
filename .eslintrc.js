@@ -3,19 +3,20 @@ module.exports = {
     es6: true,
     jest: true,
   },
-  extends: ['airbnb', 'prettier'],
+  extends: ['prettier'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
     __DEV__: 'readonly',
     fetch: false,
   },
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 2018,
+    requireConfigFile: false,
     sourceType: 'module',
   },
   plugins: ['react', 'prettier'],
