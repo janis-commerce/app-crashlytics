@@ -18,3 +18,9 @@ jest.mock('@react-native-firebase/crashlytics', () =>
 jest.mock('@janiscommerce/oauth-native', () => ({
   getUserInfo: jest.fn(),
 }));
+
+jest.mock('@janiscommerce/app-device-info', () => ({
+  __esModule: true,
+  getNetworkState: jest.fn(),
+  getUniqueId: jest.fn(),
+}));

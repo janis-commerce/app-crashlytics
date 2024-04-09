@@ -69,6 +69,8 @@ describe('helpers', () => {
       client: 'janis',
       language: 'lang',
       currency: 'currency',
+      deviceId: '12345',
+      connection: 'wifi',
     };
     it('returns true when the data contain all required coreData properties', () => {
       expect(validateCoreData(validObject)).toBe(true);

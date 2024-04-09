@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [2.1.0] - 2024-04-10
+### Added
+
+- Added device id and connection type to analytics tracking data. - [APPSRN-281](https://janiscommerce.atlassian.net/browse/APPSRN-281)
+
 ## [2.0.0] - 2023-12-18
 
 ### Breaking Changes
