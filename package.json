@@ -1,6 +1,6 @@
 {
   "name": "@janiscommerce/app-crashlytics",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Crashlytics methods for janis apps",
   "main": "lib/index.js",
   "scripts": {
