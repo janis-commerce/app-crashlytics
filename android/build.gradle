@@ -53,3 +53,10 @@ repositories {
 dependencies {
     implementation 'com.facebook.react:react-native:+'
 }
+
+afterEvaluate { project ->
+    def agpVersion = com.android.builder.model.Version.ANDROID_GRADLE_PLUGIN_VERSION
+    if (agpVersion.split('\\.')[0].toInteger() >= 8) {
+        android.namespace 'com.appcrashlytics'
+    }
+}
