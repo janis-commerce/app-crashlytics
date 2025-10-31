@@ -26,6 +26,7 @@ buildscript {
 apply plugin: 'com.android.library'
 
 android {
+    namespace "com.crashlytics"
     compileSdkVersion 27
     buildToolsVersion '27.0.3'
 
