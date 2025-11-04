@@ -2,7 +2,14 @@
 
 ## [Unreleased]
 
+## [2.2.0] - 2025-11-05
+
+### Added
+
+- Support for react 19
+
 ## [2.1.0] - 2024-04-10
+
 ### Added
 
 - Added device id and connection type to analytics tracking data. - [APPSRN-281](https://janiscommerce.atlassian.net/browse/APPSRN-281)
