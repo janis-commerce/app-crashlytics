@@ -2,7 +2,21 @@
 
 ## [Unreleased]
 
+## [3.0.1] - 2026-05-21
+
+### Fixed
+
+- Migrated npm publish workflows to Trusted Publishers (OIDC), removing the need for `npm_token` secret
+
+## [3.0.0] - 2026-05-21
+
+### Breaking Changes
+
+- Firebase peer dependencies (`@react-native-firebase/app` and `@react-native-firebase/crashlytics`) bumped from `^18.9.0` to `^21.6.1`. Consumer apps must upgrade their Firebase modules before installing this version, otherwise `npm install` will warn about unmet peer dependencies and runtime behavior is not guaranteed.
+- Minimum Android `compileSdk` raised to 35 and Java to 17. Consumer apps with older Android toolchains must update Gradle and JDK accordingly.
+
 ### Changed
+
 - Updated Firebase peerDependencies from ^18.9.0 to ^21.6.1
 - Widened react-native peer dependency range to >=0.71.5 <0.82.0
 - Widened react peer dependency range to >=17.0.2 <20.0.0
@@ -11,6 +25,7 @@
 - Upgraded GitHub Actions to v4 (checkout, setup-node)
 
 ### Added
+
 - Beta publish workflow for pre-release branches
 
 ## [2.2.0] - 2025-11-05
