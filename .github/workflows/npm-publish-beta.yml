@@ -7,10 +7,6 @@ on:
             - '*-alpha*'
             - '*-rc*'
 
-permissions:
-  id-token: write
-  contents: read
-
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -63,7 +59,9 @@ jobs:
                   fi
 
             - name: Publish to NPM
-              run: npm publish --tag ${{ steps.npm-tag.outputs.tag }} --access public --provenance
+              run: npm publish --tag ${{ steps.npm-tag.outputs.tag }} --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
     send-slack-message:
         needs: publish-npm
