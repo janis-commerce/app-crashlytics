@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [3.1.0] - 2026-06-202
+
+### Changed
+
+- Migrated Crashlytics integration to Firebase modular API (`getCrashlytics()` + named functions) replacing the legacy default import pattern
+
 ## [3.0.1] - 2026-05-21
 
 ### Fixed
